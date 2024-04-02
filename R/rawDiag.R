@@ -248,6 +248,7 @@ plotLockMassCorrection <- function(x, method = 'trellis'){
 #' @param bins number of bins in both vertical and horizontal directions. default is 80.
 #' @author Christian Trachsel (2017)
 #' @note TODO: define bin with dynamically as h= 2x IQR x n e-1/3 or number of bins (max-min)/h
+#' @import hexbin
 #' @importFrom ggplot2 ggplot aes_string geom_hex labs scale_fill_gradientn theme_light
 #' @importFrom grDevices colorRampPalette
 #' @examples
