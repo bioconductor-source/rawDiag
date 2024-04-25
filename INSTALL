@@ -35,3 +35,25 @@ run R -q -e "BiocManager::install(c('BiocStyle', 'ExperimentHub', 'knitr', 'prot
 ## rawDiag
 run R -q -e "BiocManager::install(c('rawrr', 'gglplot2', 'hexbin', 'BiocParallel', 'reshape2', 'scales'))"
 ```
+
+
+# Installation from scratch
+
+```
+install.packages('BiocManager')
+
+## install rawDiag imports
+
+pkg <- c('dplyr', 'ggplot2', 'grDevices', 'hexbin', 'htmltools', 'BiocStyle',
+  'BiocParallel', 'rawrr', 'rlang', 'reshape2', 'scales', 'shiny', 'stats',
+  'utils')
+
+pkg[!(pkg %in% installed.packages())] |> BiocManager::install()
+```
+
+## add packages for checking
+
+```
+pkg  <- c('roxygen2', 'ExperimentHub', 'testthat', 'knitr', 'rmarkdown', 'tartare')
+pkg[!(pkg %in% installed.packages())] |> BiocManager::install()
+```
