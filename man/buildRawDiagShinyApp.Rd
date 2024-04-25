@@ -20,8 +20,8 @@ Build the rawDiag shiny application
 launch the shiny application by embracing your command line while
 expecting the raw file in \code{$HOME/Downloads}
 \itemize{
-\item MacOSX and Linux: \verb{R -q -e "buildRawDiagShinyApp() |> rawDiag::shiny(launch.browser = TRUE)"}
-\item Microsoft Windows: \verb{R.exe -e "buildRawDiagShinyApp() |> rawDiag::shiny(launch.browser = TRUE)"}
+\item MacOSX and Linux: \verb{R -q -e "library(rawDiag); buildRawDiagShinyApp() |> shiny::runApp(launch.browser = TRUE)"}
+\item Microsoft Windows: \verb{R.exe -e "library(rawDiag); buildRawDiagShinyApp() |> shiny::runApp(launch.browser = TRUE)"}
 }
 }
 \examples{

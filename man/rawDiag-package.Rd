@@ -10,7 +10,7 @@ Optimizing methods for liquid chromatography coupled to mass spectrometry (LC-MS
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/cpanse/rawDiag/}
+  \item \url{https://github.com/fgcz/rawDiag/}
   \item Report bugs at \url{https://github.com/cpanse/rawDiag/issues}
 }
 

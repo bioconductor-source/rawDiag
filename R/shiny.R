@@ -62,6 +62,7 @@
 #' @param rawDir A directory containing the input raw files,
 #' default is set to the \code{$HOME/Downloads} directory.
 #' @importFrom shiny runApp
+#' @import shiny
 #' @return returns the rawDiag shiny apps
 #' @inherit plotLockMassCorrection author references
 #' @export
@@ -80,8 +81,8 @@
 #'
 #' @note launch the shiny application by embracing your command line while
 #' expecting the raw file in \code{$HOME/Downloads}
-#' * MacOSX and Linux: `R -q -e "buildRawDiagShinyApp() |> rawDiag::shiny(launch.browser = TRUE)"`
-#' * Microsoft Windows: `R.exe -e "buildRawDiagShinyApp() |> rawDiag::shiny(launch.browser = TRUE)"`
+#' * MacOSX and Linux: `R -q -e "library(rawDiag); buildRawDiagShinyApp() |> shiny::runApp(launch.browser = TRUE)"`
+#' * Microsoft Windows: `R.exe -e "library(rawDiag); buildRawDiagShinyApp() |> shiny::runApp(launch.browser = TRUE)"`
 #' @md
 buildRawDiagShinyApp <- function(rawDir = (rawrr::sampleFilePath() |> dirname())){
 
@@ -130,7 +131,9 @@ rawDiagUI <- function(id){
                                 selected = "trellis", multiple = FALSE),
              ),
              column(width = 3,
-                    checkboxInput(ns('useParallel'), 'Use parallel processing (mclapply)', value = TRUE)
+                    # checkboxInput(ns('useParallel'), 'Use parallel processing (mclapply)', value = TRUE)
+                    ## TODO(cpanse)
+                    # checkboxInput(ns('readFileHeader'), 'readFileHeader (rawrr)', value = FALSE)
              )),
            fluidRow(
              column(width = 4,
@@ -156,7 +159,7 @@ rawDiagUI <- function(id){
 #' @importFrom BiocParallel bplapply
 #' @importFrom htmltools a img div
 #' @examplesIf interactive()
-#' rawDiag::shiny(rawDir = (rawrr::sampleFilePath() |> dirname()))
+#' shiny::shiny(rawDir = (rawrr::sampleFilePath() |> dirname()))
 #' @export
 rawDiagServer <- function(id, vals){
   moduleServer(id,
