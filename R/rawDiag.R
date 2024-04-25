@@ -91,22 +91,27 @@ readRaw <- function(rawfile, msgFUN = function(x){message(x)}){
     rawrrIndex$IonInjectionTime <- NA
   }
 
-  msgFUN("reading TIC ...")
-  rawrrIndex$TIC <- NA
-  rawfile |> rawrr::readChromatogram(type = 'tic') -> tic
-  rawrrIndex$TIC[rawrrIndex$MSOrder == "Ms"] <- tic$intensities
-
-  msgFUN("reading BasePeakIntensity ...")
-  rawrrIndex$BasePeakIntensity <- NA
-  rawfile |> rawrr::readChromatogram(type = 'bpc') -> bpc
-  rawrrIndex$BasePeakIntensity[rawrrIndex$MSOrder == "Ms"] <- bpc$intensities
-
+  if (sum(rawrrIndex$MSOrder == "Ms") > 0){
+    msgFUN("reading TIC ...")
+    rawrrIndex$TIC <- NA
+    rawfile |> rawrr::readChromatogram(type = 'tic') -> tic
+    rawrrIndex$TIC[rawrrIndex$MSOrder == "Ms"] <- tic$intensities
+    
+    msgFUN("reading BasePeakIntensity ...")
+    rawrrIndex$BasePeakIntensity <- NA
+    rawfile |> rawrr::readChromatogram(type = 'bpc') -> bpc
+    rawrrIndex$BasePeakIntensity[rawrrIndex$MSOrder == "Ms"] <- bpc$intensities
+  }else{
+    msgFUN("no scans with MSOrder 'Ms', skipping TIC and BasePeakIntensity ...")
+    rawrrIndex$BasePeakIntensity <- NA
+    rawrrIndex$TIC <- NA
+  }
   t1 <- Sys.time()
   
   td <- difftime(t1, t0, units = "secs") |>
     round(3) 
   
-  message("reading took", td, "seconds") 
+  msgFUN(paste0("reading took ", td, " seconds."))
   
   rawrrIndex |>
     validate_readRaw()
