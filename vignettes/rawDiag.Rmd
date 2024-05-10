@@ -6,7 +6,6 @@ author:
   affiliation:
     - &id Functional Genomics Center Zurich (FGCZ) - University of Zurich | ETH Zurich, Winterthurerstrasse 190, CH-8057 Zurich, Switzerland
     - Swiss Institute of Bioinformatics (SIB), Quartier Sorge - Batiment Amphipole, CH-1015 Lausanne, Switzerland
-    - Core for Life - https://coreforlife.sites.vib.be
   email: cp@fgcz.ethz.ch
 - name: Tobias Kockmann
   affiliation: *id
