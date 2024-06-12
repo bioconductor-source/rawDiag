@@ -434,7 +434,6 @@ plotCycleTime <- function(x, method = 'trellis'){
   }else{NULL}
   gp +
     ggplot2::labs(title = "Cycle time plot") +
-    ggplot2::labs(x = "Retention Time [min]", y = "Cycle Time [sec]") +
     ggplot2::theme_light()
 }
 
