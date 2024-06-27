@@ -162,6 +162,14 @@ sufficient:
 sudo apt-get install mono-runtime libmono-system-data4.0-cil -y
 ```
 
+The output should look like:
+
+```{r monoVersion}
+if (Sys.info()["sysname"] %in% c("Darwin", "Linux")) {
+  system2("mono", args = '--version', stdout = TRUE)
+}
+```
+
 ### macOS (Catalina/BigSur)
 
 ```
@@ -204,6 +212,10 @@ if (isFALSE(rawrr::.checkDllInMonoPath())){
 rawrr::installRawrrExe()
 ```
 
+```{r listrawrrAssemblyPath}
+rawrr::rawrrAssemblyPath()
+rawrr::rawrrAssemblyPath() |> list.files()
+```
 
 for more information please read the INSTALL file in the
 `r BiocStyle::Biocpkg('rawrr')` package.
@@ -252,8 +264,9 @@ package.
 
 ```{r readEH4547OrbitrapTrailerTable}
 rawfile |>
-  BiocParallel::bplapply(FUN = rawDiag::readRaw) |>
+  lapply(FUN = rawDiag::readRaw) |>
   Reduce(f = rbind) -> x
+  #BiocParallel::bplapply(FUN = rawDiag::readRaw) |>
 ```
 
 ### Output -  Visualization
