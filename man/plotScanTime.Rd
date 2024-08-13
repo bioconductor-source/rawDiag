@@ -23,7 +23,7 @@ Plotting the elapsed scan time for each individual scan event.
 \examples{
  rawrr::sampleFilePath() |> rawDiag::readRaw() -> S
 
- S|> plotScanTime()
+S |> rawDiag::plotScanTime()
 }
 \references{
 \itemize{

@@ -24,7 +24,7 @@ time. The deepskyblue colored loess curve shows the trend.
 \examples{
 rawrr::sampleFilePath() |> rawDiag::readRaw() -> S
 
- S|> plotCycleLoad()
+S |> rawDiag::plotCycleLoad()
 }
 \references{
 \itemize{

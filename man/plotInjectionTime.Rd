@@ -23,7 +23,7 @@ plot. The higher the maximum number of MS2 scans is in the method,
 the more the density is shifted towards the maximum injection time value.
 }
 \examples{
-rawrr::sampleFilePath() |> readRaw() |> plotInjectionTime()
+rawrr::sampleFilePath() |> rawDiag::readRaw() |> rawDiag::plotInjectionTime()
 }
 \references{
 \itemize{

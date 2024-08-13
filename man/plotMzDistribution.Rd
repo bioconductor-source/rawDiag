@@ -22,7 +22,7 @@ draws precursor mass vs retention time for each MS2 scan in the raw file.
 }
 \examples{
 rawrr::sampleFilePath() |> rawDiag::readRaw() -> S
-plotMzDistribution(S)
+rawDiag::plotMzDistribution(S)
 }
 \references{
 \itemize{

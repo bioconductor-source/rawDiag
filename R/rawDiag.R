@@ -199,8 +199,8 @@ validate_readRaw <- function(x){
 #' @md
 #' @examples
 #' rawrr::sampleFilePath() |>
-#'   readRaw() |>
-#'   plotLockMassCorrection()
+#'   rawDiag::readRaw() |>
+#'   rawDiag::plotLockMassCorrection()
 #'
 #' @importFrom ggplot2 ggplot aes_string geom_hline geom_line labs scale_x_continuous facet_wrap theme_light
 #' @export
@@ -257,7 +257,7 @@ plotLockMassCorrection <- function(x, method = 'trellis'){
 #' @importFrom ggplot2 ggplot aes_string geom_hex labs scale_fill_gradientn theme_light
 #' @importFrom grDevices colorRampPalette
 #' @examples
-#' rawrr::sampleFilePath() |> readRaw() |> plotPrecursorHeatmap()
+#' rawrr::sampleFilePath() |> rawDiag::readRaw() |> rawDiag::plotPrecursorHeatmap()
 #' @export
 #' @aliases PlotPrecursorHeatmap
 plotPrecursorHeatmap <- function(x, method = 'overlay', bins = 80){
@@ -306,7 +306,7 @@ plotPrecursorHeatmap <- function(x, method = 'overlay', bins = 80){
 #' @importFrom ggplot2 ggplot aes_string geom_line labs scale_x_continuous facet_wrap theme_light
 #' @importFrom reshape2 melt
 #' @examples
-#' rawrr::sampleFilePath() |> readRaw() |> plotTicBasepeak()
+#' rawrr::sampleFilePath() |> rawDiag::readRaw() |> rawDiag::plotTicBasepeak()
 #' @export
 #' @aliases PlotTicBasepeak
 plotTicBasepeak <- function(x, method = 'trellis'){
@@ -390,7 +390,7 @@ plotTicBasepeak <- function(x, method = 'trellis'){
 #' @importFrom stats quantile na.omit
 #' @importFrom rlang .data
 #' @examples
-#' rawrr::sampleFilePath() |> readRaw() |> plotCycleTime()
+#' rawrr::sampleFilePath() |> rawDiag::readRaw() |> rawDiag::plotCycleTime()
 #' @export
 #' @aliases PlotCycleTime
 plotCycleTime <- function(x, method = 'trellis'){
@@ -449,7 +449,7 @@ plotCycleTime <- function(x, method = 'trellis'){
 #' @importFrom ggplot2 ggplot aes geom_point geom_line scale_x_continuous scale_y_continuous geom_hline theme_light
 #' @importFrom rlang .data
 #' @examples
-#' rawrr::sampleFilePath() |> readRaw() |> plotInjectionTime()
+#' rawrr::sampleFilePath() |> rawDiag::readRaw() |> rawDiag::plotInjectionTime()
 #' @export
 #' @aliases PlotInjectionTime
 plotInjectionTime <- function(x, method = 'trellis'){
@@ -511,7 +511,7 @@ plotInjectionTime <- function(x, method = 'trellis'){
 #' @importFrom rlang .data
 #' @examples
 #' rawrr::sampleFilePath() |> rawDiag::readRaw() -> S
-#' plotMzDistribution(S)
+#' rawDiag::plotMzDistribution(S)
 #' @export
 #' @aliases PlotMzDistribution
 plotMzDistribution <- function(x, method='trellis'){
@@ -621,8 +621,7 @@ plotMassDistribution <- function(x, method = 'trellis'){
 #' @importFrom rlang .data
 #' @examples
 #'  rawrr::sampleFilePath() |> rawDiag::readRaw() -> S
-#'
-#'  S|>plotLockMassCorrection()
+#'  S |> rawDiag::plotLockMassCorrection()
 #' @export
 #' @aliases PlotChargeState
 plotChargeState <- function(x, method='trellis'){
@@ -737,7 +736,7 @@ plotChargeState <- function(x, method='trellis'){
 #' @examples
 #'  rawrr::sampleFilePath() |> rawDiag::readRaw() -> S
 #'
-#'  S|> plotScanTime()
+#' S |> rawDiag::plotScanTime()
 #' @export
 #' @aliases PlotScanTime
 plotScanTime <- function(x, method='trellis'){
@@ -832,7 +831,7 @@ plotScanTime <- function(x, method='trellis'){
 #' @examples
 #' rawrr::sampleFilePath() |> rawDiag::readRaw() -> S
 #'
-#'  S|> plotCycleLoad()
+#' S |> rawDiag::plotCycleLoad()
 #' @export
 #' @aliases PlotCycleLoad
 plotCycleLoad <- function(x, method = 'trellis'){

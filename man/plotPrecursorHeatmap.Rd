@@ -26,7 +26,7 @@ Precursor Mass versus StartTime MS2 based hexagons
 TODO: define bin with dynamically as h= 2x IQR x n e-1/3 or number of bins (max-min)/h
 }
 \examples{
-rawrr::sampleFilePath() |> readRaw() |> plotPrecursorHeatmap()
+rawrr::sampleFilePath() |> rawDiag::readRaw() |> rawDiag::plotPrecursorHeatmap()
 }
 \references{
 \itemize{

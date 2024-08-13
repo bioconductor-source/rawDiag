@@ -22,8 +22,7 @@ graphs the number of occurrences of all selected precursor charge states.
 }
 \examples{
  rawrr::sampleFilePath() |> rawDiag::readRaw() -> S
-
- S|>plotLockMassCorrection()
+ S |> rawDiag::plotLockMassCorrection()
 }
 \references{
 \itemize{
